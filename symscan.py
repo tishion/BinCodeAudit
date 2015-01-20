@@ -8,7 +8,7 @@
 
 import os
 import string
-import pefile
+from pefile import pefile
 from fileiterator import *
 
 
