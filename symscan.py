@@ -142,15 +142,16 @@ class ImportSymScanner(InterfaceFileProcessor):
                     import_syms = [elem.name for elem in entry.imports]
                     syms_intersection = [
                         elem for elem in import_syms if elem in self.__syms[module]]
-                    if len(syms_intersection):
-                        mod_syms_tuple = (module, syms_intersection)
-                        mod_syms.append(mod_syms_tuple)
+                    if len(syms_intersection) == 0:
+                        syms_intersection.append('*Empty*')
+                    mod_syms_tuple = (module, syms_intersection)
+                    mod_syms.append(mod_syms_tuple)
             pe.close()
         except pefile.PEFormatError:
             pass
         except Exception, e:
-            print 'File:', file
-            print '\tException:', e
+            print 'Error:', file
+            print '\t:', e
             pass
 
         return mod_syms

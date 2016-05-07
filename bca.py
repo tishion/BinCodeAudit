@@ -34,11 +34,12 @@ def main():
         return
 
     sc = ImportSymScanner()
-    sc.add_sym('msvcr90.dll', ('wcscpy', 'strcpy', 'swprintf'))
-    sc.add_sym('msvcr80.dll', ('wcscpy', 'strcpy', 'swprintf'))
-    sc.add_sym('msvcrt.dll', ('wcscpy', 'strcpy', 'swprintf'))
-    sc.add_sym('kernel32.dll', ('lstrcpyA', 'lstrcpyW', 'lstrcatA', 'lstrcatW'))
-    sc.add_sym('shlwapi.dll', ('StrCpyA', 'StrCpyW'))
+    sc.add_sym('ucrtbase.dll', ())
+    #sc.add_sym('msvcr90.dll', ('wcscpy', 'strcpy', 'swprintf'))
+    #sc.add_sym('msvcr80.dll', ('wcscpy', 'strcpy', 'swprintf'))
+    #sc.add_sym('msvcrt.dll', ('wcscpy', 'strcpy', 'swprintf'))
+    #sc.add_sym('kernel32.dll', ('lstrcpyA', 'lstrcpyW', 'lstrcatA', 'lstrcatW'))
+    #sc.add_sym('shlwapi.dll', ('StrCpyA', 'StrCpyW'))
 
 
     print 'Scanning ...'

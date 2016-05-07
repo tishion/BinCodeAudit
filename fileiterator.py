@@ -31,7 +31,14 @@ class FileIterator:
     def __traversal_directory(self, dir, iprocessor):
 
         if os.path.isdir(dir):
-            for item in os.listdir(dir):
+            try:
+                itemlist = os.listdir(dir)
+            except Exception, e:
+                print 'Error:', dir
+                print '\t:', e
+                return
+
+            for item in itemlist:
                 item_path = os.path.join(dir, item)
                 if os.path.isdir(item_path):
                     self.__traversal_directory(item_path, iprocessor)
